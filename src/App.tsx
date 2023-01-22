@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import { Dialogs } from './components/Dialogs/Dialogs';
@@ -7,7 +7,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { Profile } from './components/Profile/Profile';
 
 
-const App = () => {
+const App: FC = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>

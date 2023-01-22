@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-export const Dialogs = () => {
+export const Dialogs: FC = () => {
     return (
         <div>Dialogs</div>
     )

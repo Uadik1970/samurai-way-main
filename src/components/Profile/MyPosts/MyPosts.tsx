@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Post } from './Post/Post'
 
-export const MyPosts = () => {
+export const MyPosts: FC = () => {
     return (<div>
         <div>My posts</div>
         <div>
