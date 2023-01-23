@@ -1,12 +1,6 @@
 import React, { Component, FC, FunctionComponent } from 'react'
+import { PostPropsType } from '../../../../Types/Profile/PostPropsType'
 import s from './Post.module.css'
-
-
-type PostPropsType = {
-    id: number
-    message: string
-    likeCount: number
-}
 
 export const Post: FC<PostPropsType> = ({ message, likeCount }) => {
 

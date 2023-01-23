@@ -1,14 +1,10 @@
 import React, { FC } from 'react'
 import { Post } from './Post/Post'
 import s from './MyPosts.module.css'
+import { PostsPropsType } from '../Profile'
 
-export const MyPosts: FC = () => {
+export const MyPosts: FC<PostsPropsType> = ({ posts }) => {
 
-    const posts = [
-        { id: 1, message: 'Hi how are you', likeCount: 1 },
-        { id: 2, message: 'Hi how are you', likeCount: 2 },
-        { id: 3, message: 'Hi how are you', likeCount: 3 }
-    ]
     const postsElements = posts.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount} />)
 
     return (
