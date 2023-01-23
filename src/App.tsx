@@ -5,18 +5,18 @@ import { Dialogs } from './components/Dialogs/Dialogs';
 import { Header } from './components/Header/Header';
 import { Navbar } from './components/Navbar/Navbar';
 import { Profile } from './components/Profile/Profile';
-import { AppPropsType } from './Types/AppPropsType';
+import { StatePropsType } from './Types/StatePropsType';
 
 
-const App: FC<AppPropsType> = ({ posts, messages, dialogs }) => {
+const App: FC<StatePropsType> = ({ state }) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path={'/dialogs'} render={() => <Dialogs messages={messages} dialogs={dialogs} />} exact />
-          <Route path={'/profile'} render={() => <Profile posts={posts} />} exact />
+          <Route path={'/dialogs'} render={() => <Dialogs messages={state.dialogsPage.messages} dialogs={state.dialogsPage.dialogs} />} exact />
+          <Route path={'/profile'} render={() => <Profile posts={state.profilePage.posts} />} exact />
         </div>
       </div>
     </BrowserRouter>
