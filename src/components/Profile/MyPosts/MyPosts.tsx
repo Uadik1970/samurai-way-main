@@ -4,11 +4,12 @@ import s from './MyPosts.module.css'
 
 export const MyPosts: FC = () => {
 
-    const postData = [
+    const posts = [
         { id: 1, message: 'Hi how are you', likeCount: 1 },
         { id: 2, message: 'Hi how are you', likeCount: 2 },
         { id: 3, message: 'Hi how are you', likeCount: 3 }
     ]
+    const postsElements = posts.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount} />)
 
     return (
         <div>
@@ -21,7 +22,7 @@ export const MyPosts: FC = () => {
                     <button>add post</button></div>
             </div>
             <div className={s.posts}>
-                {postData.map(p => <Post id={p.id} message={p.message} likeCount={p.likeCount} />)}
+                {postsElements}
             </div>
         </div>
     )
