@@ -5,17 +5,25 @@ import s from './Dialogs.module.css'
 import { Message } from './Messages/Message'
 
 export const Dialogs: FC = () => {
+
+    const dialogData = [
+        { id: 1, name: '111' },
+        { id: 2, name: '222' },
+        { id: 3, name: '333' }
+    ]
+    const messageData = [
+        { id: 1, message: '444' },
+        { id: 1, message: '555' },
+        { id: 1, message: '666' },
+    ]
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name='111' id='1' />
-                <DialogItem name='222' id='2' />
-                <DialogItem name='333' id='3' />
+                {dialogData.map(d => <DialogItem id={d.id} name={d.name} />)}
             </div>
             <div className={s.messages}>
-                <Message message='HI' />
-                <Message message='HOW' />
-                <Message message='are you' />
+                {messageData.map(m => <Message id={m.id} message={m.message} />)}
             </div>
         </div>
     )
