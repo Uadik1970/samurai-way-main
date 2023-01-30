@@ -15,6 +15,7 @@ export type State11111PropsType = {
 
 type ProfilePageType = {
     posts: PostPropsType[]
+    // addPost:(postMessage:string| undefined)=>void
 }
 
 type DialogsPageType = {

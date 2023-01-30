@@ -5,6 +5,7 @@ import { Dialogs } from './components/Dialogs/Dialogs';
 import { Header } from './components/Header/Header';
 import { Navbar } from './components/Navbar/Navbar';
 import { Profile } from './components/Profile/Profile';
+import { addPost } from './redux/state';
 import { StatePropsType } from './Types/StatePropsType';
 
 
@@ -16,7 +17,7 @@ const App: FC<StatePropsType> = ({ state }) => {
         <Navbar />
         <div className='app-wrapper-content'>
           <Route path={'/dialogs'} render={() => <Dialogs messages={state.dialogsPage.messages} dialogs={state.dialogsPage.dialogs} />} exact />
-          <Route path={'/profile'} render={() => <Profile posts={state.profilePage.posts} />} exact />
+          <Route path={'/profile'} render={() => <Profile posts={state.profilePage.posts} addPost={addPost} />} exact />
         </div>
       </div>
     </BrowserRouter>
