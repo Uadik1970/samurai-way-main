@@ -5,11 +5,11 @@ import { Dialogs } from './components/Dialogs/Dialogs';
 import { Header } from './components/Header/Header';
 import { Navbar } from './components/Navbar/Navbar';
 import { Profile } from './components/Profile/Profile';
-import { addPost } from './redux/state';
-import { StatePropsType } from './Types/StatePropsType';
+import { addPost, TsarRootState, updateNewPostText } from './redux/state';
+// import { StatePropsType } from './Types/StatePropsType';
 
 
-const App: FC<StatePropsType> = ({ state }) => {
+const App: FC<TsarRootState> = ({ state }) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -17,7 +17,7 @@ const App: FC<StatePropsType> = ({ state }) => {
         <Navbar />
         <div className='app-wrapper-content'>
           <Route path={'/dialogs'} render={() => <Dialogs messages={state.dialogsPage.messages} dialogs={state.dialogsPage.dialogs} />} exact />
-          <Route path={'/profile'} render={() => <Profile posts={state.profilePage.posts} addPost={addPost} />} exact />
+          <Route path={'/profile'} render={() => <Profile profilePage={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText} />} exact />
         </div>
       </div>
     </BrowserRouter>
