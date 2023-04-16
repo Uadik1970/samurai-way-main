@@ -57,7 +57,7 @@ export const state: RootState = {
 }
 export const addPost = (postMessage: string) => {
     let newPost: PostType = {
-        id: 5,
+        id: 6,
         message: postMessage,
         likeCount: 0
     }
