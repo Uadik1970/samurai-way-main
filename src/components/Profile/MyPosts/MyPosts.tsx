@@ -1,38 +1,39 @@
-import React, { FC, LegacyRef } from 'react'
+import React, { FC } from 'react'
 import { Post } from './Post/Post'
 import s from './MyPosts.module.css'
-import { PostsPropsType } from '../Profile'
-import { ProfilePageType, updateNewPostText } from '../../../redux/state'
+import { ActionsType, } from '../../../redux/store'
 import { PostPropsType } from '../../../Types/Profile/PostPropsType'
+import { addPostAC, updateNewPostTextAC } from '../../../redux/profile-reducer'
 
 type MyPostsPropsType = {
     posts: PostPropsType[]
-    addPostCallback: (postMessage: string) => void
-    updateNewPostText: (arg: string) => void
+    dispatch: (action: ActionsType) => void
     newPostText: string
 }
 
-export const MyPosts: FC<MyPostsPropsType> = ({ posts, addPostCallback, newPostText }) => {
+export const MyPosts: FC<MyPostsPropsType> = ({ posts, newPostText, dispatch }) => {
 
     const postsElements = posts.map(p => <Post key={p.id} id={p.id} message={p.message} likeCount={p.likeCount} />)
 
-    let addPostttttt = () => {
-        addPostCallback(newPostText)
+    const handleAddPostClick = () => {
+        dispatch(addPostAC(newPostText))
     }
 
     const onPostChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        // addPost(text ? text : '')
-        updateNewPostText(e.currentTarget.value)
+        let newPostText = e.currentTarget.value
+        dispatch(updateNewPostTextAC(newPostText))
     }
+
     return (
         <div>
             <div>My posts</div>
             <div>
                 <div>
-                    <textarea value={newPostText} onChange={onPostChange}></textarea>
+                    <textarea
+                        value={newPostText} onChange={onPostChange}></textarea>
                 </div>
                 <div>
-                    <button onClick={addPostttttt}>add post</button></div>
+                    <button onClick={handleAddPostClick}>add post</button></div>
             </div>
             <div className={s.posts}>
                 {postsElements}

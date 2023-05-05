@@ -1,15 +1,16 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { RootState, state } from './redux/state';
+import { store } from './redux/store';
 
 
-export const renderTree = (state: RootState) => {
+export const rerenderEntireTree = () => {
     ReactDOM.render(
-        <App state={state} />,
-        // <App posts={posts} messages={messages} dialogs={dialogs} />,
+        <App
+            store={store}
+            dispatch={store.dispatch}
+        />,
         document.getElementById('root')
     );
 }

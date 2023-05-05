@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { RootState, state } from './redux/state';
-import { renderTree } from './render';
+import { RootStateType, TsarRootState, store } from './redux/store';
+import { rerenderEntireTree } from './render';
 
 
 
 
 
-renderTree(state)
+// // subscribe(rerenderEntireTree)
+// rerenderEntireTree(store.getState())
+// store.subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree)
+rerenderEntireTree()
